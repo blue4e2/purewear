@@ -8,8 +8,8 @@ const App = () => (
     <main className="relative flex justify-center w-full bg-[#f9fafe] min-h-[calc(100vh-73px)]">
       
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/password/forgot" element={<ForgotPassword />} />
           <Route path="/product/:pid" element={<Product />} />
