@@ -27,7 +27,7 @@ const Login = () => {
       console.log(response)
       if(response.data.success){
         console.log(response.data.data)
-        navigate('/')
+        navigate('/dashboard')
       }
     }catch(err){
       setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
