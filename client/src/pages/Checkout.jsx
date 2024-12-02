@@ -57,7 +57,7 @@ const Checkout = () => {
             }
         }catch(err){
           if(err.status==401){
-            navigate('/login')
+            navigate('/')
           }
           setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
         }finally{
@@ -92,7 +92,7 @@ const Checkout = () => {
         }
       }catch(err){
         if(err.status==401){
-          navigate('/login')
+          navigate('/')
         }
         setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
       }finally{
@@ -111,11 +111,11 @@ const Checkout = () => {
       try{
         const response = await axios.post('https://purewear-server.onrender.com/api/auth/logout',{},{withCredentials: true})
         if(response.data.success){
-          navigate('/login')
+          navigate('/')
         }
       }catch(err){
         if(err.status==401){
-          navigate('/login')
+          navigate('/')
         }
         setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
       }finally{
