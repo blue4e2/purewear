@@ -21,8 +21,8 @@ const Profile = () => {
     }
     setLoading(true)
     try{
-      const res1 = await axios.post('http://localhost:8080/api/user/profile/get',data,{withCredentials:true})
-      const res2 = await axios.post('http://localhost:8080/api/user/address/get',data,{withCredentials:true})
+      const res1 = await axios.post('https://purewear-server.onrender.com/api/user/profile/get',data,{withCredentials:true})
+      const res2 = await axios.post('https://purewear-server.onrender.com/api/user/address/get',data,{withCredentials:true})
       setUser(res1.data.data)
       setAddresses(res2.data.data)
     }catch(err){
@@ -48,7 +48,7 @@ const Profile = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/user/profile/update',data,{withCredentials:true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/user/profile/update',data,{withCredentials:true})
       
       if(response.statusText=='OK'){
         console.log(response.data.data)
@@ -72,7 +72,7 @@ const Profile = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/user/address/add',data,{withCredentials:true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/user/address/add',data,{withCredentials:true})
       
       if(response.data.success){
         console.log(response.data.data)
@@ -97,7 +97,7 @@ const Profile = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/user/address/update',data,{withCredentials:true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/user/address/update',data,{withCredentials:true})
       console.log(response)
       
       if(response.data.success){
@@ -121,7 +121,7 @@ const Profile = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/user/address/remove',data,{withCredentials:true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/user/address/remove',data,{withCredentials:true})
       console.log(response)
       
       if(response.data.success){
@@ -148,7 +148,7 @@ const Profile = () => {
   const handleLogout = async() => {
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/auth/logout',{},{withCredentials: true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/auth/logout',{},{withCredentials: true})
       if(response.data.success){
         navigate('/login')
       }
