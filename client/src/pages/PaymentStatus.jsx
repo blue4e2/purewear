@@ -67,15 +67,15 @@ const setup = async() => {
   }
   setLoading(true)
   try{
-    const res1 = await axios.post('http://localhost:8080/api/user/checkout/get',data1,{withCredentials:true})
+    const res1 = await axios.post('https://purewear-server.onrender.com/api/user/checkout/get',data1,{withCredentials:true})
     if(res1.data.success){
       const checkoutData = res1.data.data
-      const res2 = await axios.post('http://localhost:8080/api/user/order/create',checkoutData,{withCredentials:true}) 
+      const res2 = await axios.post('https://purewear-server.onrender.com/api/user/order/create',checkoutData,{withCredentials:true}) 
       if(res2.data.success){
         console.log(res2.data.data)
         setOrder(res2.data.data)
       }
-      const res3 = await axios.post('http://localhost:8080/api/user/profile/get',{},{withCredentials: true})
+      const res3 = await axios.post('https://purewear-server.onrender.com/api/user/profile/get',{},{withCredentials: true})
       if(res3.data.success){
         setUser(res3.data.data)
       }
@@ -113,7 +113,7 @@ const setup = async() => {
   const handleLogout = async() => {
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/auth/logout',{},{withCredentials: true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/auth/logout',{},{withCredentials: true})
       if(response.data.success){
         navigate('/login')
       }
