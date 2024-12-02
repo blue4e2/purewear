@@ -22,12 +22,12 @@ const Login = () => {
 
   const handleLogin = async(e) => {
     setLoading(true)
+    navigate('/dashboard')
     try{
       const response = await axios.post('https://purewear-server.onrender.com/api/auth/login', userData, {withCredentials: true})
       console.log(response)
       if(response.data.success){
-        console.log(response.data.data)
-        navigate('/dashboard')
+        //console.log(response.data.data)
       }
     }catch(err){
       setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
