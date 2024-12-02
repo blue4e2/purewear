@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(cors({
-    origin:'https://purewear-client.vercel.app/',
+    origin:'https://purewear-client.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
 app.use(express.json());
@@ -23,6 +24,8 @@ app.use(cookieParser());
 app.use('/api/auth', auth_router);
 app.use('/api/product', product_router);
 app.use('/api/user', user_router);
+
+app.options('*', cors());
 
 const startserver = async() => {
     try{
