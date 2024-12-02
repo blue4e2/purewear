@@ -83,7 +83,7 @@ const setup = async() => {
   
   }catch(err){
     if(err.status==401){
-      navigate('/login')
+      navigate('/')
     }
     setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
   }finally{
@@ -115,11 +115,11 @@ const setup = async() => {
     try{
       const response = await axios.post('https://purewear-server.onrender.com/api/auth/logout',{},{withCredentials: true})
       if(response.data.success){
-        navigate('/login')
+        navigate('/')
       }
     }catch(err){
       if(err.status==401){
-        navigate('/login')
+        navigate('/')
       }
       setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
     }finally{
@@ -156,7 +156,7 @@ const setup = async() => {
                 {status=='succeeded' && <div className='text-l font-bold'>Thank you for shopping with us!</div>}
             </div>
             </div>
-            <Link to={'/'} className="group mt-12 flex w-60 cursor-pointer select-none items-center justify-center bg-black py-2 text-white transition">
+            <Link to={'/dashboard'} className="group mt-12 flex w-60 cursor-pointer select-none items-center justify-center bg-black py-2 text-white transition">
                   <span className="group flex w-2/3 items-center justify-center py-1 text-center font-medium">Continue Shopping</span>
                   <svg className="flex-0 mt-2 group-hover:w-7 ml-2 h-5 items-center w-0 transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 34 34" stroke="currentColor" stroke-width="2">
                     <path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/>
