@@ -15,8 +15,8 @@ const Orders = () => {
   const setup = async() => {
     setLoading(true)
     try{
-      const res1 = await axios.post('http://localhost:8080/api/user/orders/get', {},{withCredentials:true})
-      const res2 = await axios.post('http://localhost:8080/api/user/profile/get',{},{withCredentials: true})
+      const res1 = await axios.post('https://purewear-server.onrender.com/api/user/orders/get', {},{withCredentials:true})
+      const res2 = await axios.post('https://purewear-server.onrender.com/api/user/profile/get',{},{withCredentials: true})
       const orderItems = res1.data.orders
       orderItems.reverse()
       setOrders(orderItems)
@@ -24,7 +24,7 @@ const Orders = () => {
 
       const productPromises = orderItems.map(async (item) => {
         const subItemPromises = item.cartItems.map(async(subItem)=>{
-          const res = await axios.get(`http://localhost:8080/api/product/get/${subItem.pid}`)
+          const res = await axios.get(`https://purewear-server.onrender.com/api/product/get/${subItem.pid}`)
           return res.data.data
         })
         return await Promise.all(subItemPromises)
@@ -60,7 +60,7 @@ const Orders = () => {
   const handleLogout = async() => {
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/auth/logout',{},{withCredentials: true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/auth/logout',{},{withCredentials: true})
       if(response.data.success){
         navigate('/login')
       }
