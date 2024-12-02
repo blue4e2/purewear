@@ -50,14 +50,14 @@ const Dashboard = () => {
   const fetchUserData = async() => {
     setLoading(true)
     try{
-      const res1 = await axios.post('https://purewear-server.onrender.com/api/user/profile/get',{},{withCredentials: true})
-      const res2 = await axios.post('https://purewear-server.onrender.com/api/user/wishlist/get',{},{withCredentials: true})
-      if(res1.data.success){
-        setUser(res1.data.data)
-      }
-      if(res2.data.success){
-        setWishlist(res2.data.data)  
-      }
+      // const res1 = await axios.post('https://purewear-server.onrender.com/api/user/profile/get',{},{withCredentials: true})
+      // const res2 = await axios.post('https://purewear-server.onrender.com/api/user/wishlist/get',{},{withCredentials: true})
+      // if(res1.data.success){
+      //   setUser(res1.data.data)
+      // }
+      // if(res2.data.success){
+      //   setWishlist(res2.data.data)  
+      // }
     }catch(err){
       if(err.status==401){
         navigate('/')
