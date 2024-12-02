@@ -27,7 +27,7 @@ const Signup = () => {
       if(response.data.success){
         console.log(response.data.data)
         localStorage.setItem('token', response.data.data)
-        navigate('/')
+        navigate('/dashboard')
       }
     }catch(err){
       setAlerts([...alerts,{alertOn:true, type:'error',message:err.message}])
