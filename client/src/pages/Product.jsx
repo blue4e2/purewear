@@ -23,7 +23,7 @@ const Product = () => {
   const fetchProduct = async() => {
     setLoading(true)
     try{
-      const res = await axios.get(`http://localhost:8080/api/product/get/${pid}`)
+      const res = await axios.get(`https://purewear-server.onrender.com/api/product/get/${pid}`)
       if(res.statusText=='OK'){
         const resItem = res.data.data
         setProduct(resItem)
@@ -40,9 +40,9 @@ const Product = () => {
   const setup = async() => {
     setLoading(true)
     try{
-      const res2 = await axios.post('http://localhost:8080/api/user/wishlist/get',{},{withCredentials:true})
-      const res3 = await axios.post('http://localhost:8080/api/user/cart/get',{},{withCredentials:true})
-      const res1 = await axios.post('http://localhost:8080/api/user/orders/get', {},{withCredentials:true})
+      const res2 = await axios.post('https://purewear-server.onrender.com/api/user/wishlist/get',{},{withCredentials:true})
+      const res3 = await axios.post('https://purewear-server.onrender.com/api/user/cart/get',{},{withCredentials:true})
+      const res1 = await axios.post('https://purewear-server.onrender.com/api/user/orders/get', {},{withCredentials:true})
       if(res2.data.success){
         setWishlist(res2.data.data)
       }
@@ -95,7 +95,7 @@ const Product = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/user/wishlist/add', data,{withCredentials:true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/user/wishlist/add', data,{withCredentials:true})
       if(response.data.success){
         setWishlist([...wishlist,pid])
         setLiked(true)
@@ -118,7 +118,7 @@ const Product = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post(`http://localhost:8080/api/user/wishlist/remove`, data,{withCredentials:true})
+      const response = await axios.post(`https://purewear-server.onrender.com/api/user/wishlist/remove`, data,{withCredentials:true})
       if(response.statusText=='OK'){
         setWishlist(wishlist.filter(item => item!== pid))
         setLiked(false)
@@ -161,7 +161,7 @@ const Product = () => {
     }
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/user/cart/add', data,{withCredentials:true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/user/cart/add', data,{withCredentials:true})
       if(response.data.success){
         setAlerts([...alerts,{alertOn:true, type:'success',message:'Added to cart'}])
       }
@@ -184,7 +184,7 @@ const Product = () => {
   const handleLogout = async() => {
     setLoading(true)
     try{
-      const response = await axios.post('http://localhost:8080/api/auth/logout',{},{withCredentials: true})
+      const response = await axios.post('https://purewear-server.onrender.com/api/auth/logout',{},{withCredentials: true})
       if(response.data.success){
         navigate('/login')
       }
