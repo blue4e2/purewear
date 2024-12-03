@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 const verifyToken = (req,res,next) => {
     console.log(req.cookies);
-    const token = req.cookies.vercel-feature-flags;
+    const token = req.cookies['vercel-feature-flags'];
     if(!token){
         return res.status(401).json({ success: false, message: "Access denied. No token provided."})
     }
