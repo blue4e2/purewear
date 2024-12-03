@@ -75,7 +75,8 @@ const passwordAuth = async(req,res)=>{
             path: "/",
             maxAge: 1000 * 63 * 10,
             httpOnly: true,
-            secure: true
+            secure: true,
+            sameSite: 'None',
         });
         await user.save();
 
