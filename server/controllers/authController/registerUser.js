@@ -28,6 +28,7 @@ const registerUser = async(req,res)=>{
             path: "/",
             maxAge: 1000 * 63 * 10,
             httpOnly: true,
+            secure: true
         });
         
         return res.status(201).json({ success: true, message: "User registered successfully" });

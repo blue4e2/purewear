@@ -26,6 +26,7 @@ const loginUser = async(req,res)=>{
                 path: "/",
                 maxAge: 1000 * 63 * 10,
                 httpOnly: true,
+                secure: true
             });
             
             return res.status(200).json({ success: true, message: "User Logged in successfully" });
